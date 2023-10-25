@@ -46,9 +46,9 @@ impl<T: Clone + Ord> StaticTableId<T> {
 
 #[derive(Debug, Clone)]
 pub struct StaticTableConfig<E: MultiMillerLoop> {
-    size: usize,
-    g1_lagrange: Vec<E::G1Affine>,
-    g_lagrange_opening_at_0: Vec<E::G1Affine>,
+    pub size: usize,
+    pub g1_lagrange: Vec<E::G1Affine>,
+    pub g_lagrange_opening_at_0: Vec<E::G1Affine>,
 }
 
 impl<E: MultiMillerLoop> StaticTableConfig<E> {
@@ -67,11 +67,11 @@ impl<E: MultiMillerLoop> StaticTableConfig<E> {
 
 #[derive(Clone, Debug)]
 pub struct StaticTableValues<E: MultiMillerLoop> {
-    size: usize,
+    pub size: usize,
     // Mapping from value to its index in the table
-    value_index_mapping: BTreeMap<E::Scalar, usize>,
+    pub value_index_mapping: BTreeMap<E::Scalar, usize>,
     // quotient commitments
-    qs: Vec<E::G1>,
+    pub qs: Vec<E::G1>,
 }
 
 impl<E: MultiMillerLoop> StaticTableValues<E> {
